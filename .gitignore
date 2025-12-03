@@ -1,0 +1,23 @@
+# Secrets
+*.env
+.env.local
+.env.development.local
+.env.production.local
+
+# Frontend
+frontend/node_modules/
+frontend/build/
+frontend/.npm
+frontend/.cache
+
+# Backend
+server/target/
+server/.idea/
+server/*.iml
+server/.settings/
+server/bin/
+
+# System
+.DS_Store
+Thumbs.db
+*.log

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Page</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="payment-container">
+  <h1>Payment Page</h1>
+  <p>Please complete your payment of <span id="amount"></span>.</p>
+
+  <!-- QR Code Image -->
+  <div class="qr-code">
+    <img src="./qrcode.png" alt="QR Code">
+  </div>
+
+  <div class="upi-id">
+    <p>Or use UPI ID:</p>
+    <p class="upi">buyticket@okhdfcbank</p>
+  </div>
+
+  <div class="payment-status">
+    <p>Waiting for payment...</p>
+  </div>
+
+  <button id="pay-button">I have paid</button>
+</div>
+
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const amount = urlParams.get('amount');
+  document.getElementById('amount').textContent = `₹${amount}`;
+
+  document.getElementById('pay-button').addEventListener('click', () => {
+    const paymentStatus = document.querySelector('.payment-status');
+    paymentStatus.innerHTML = `
+        <p style="color: green;">Payment Successful!</p>
+        <p>Thank you for your payment.</p>
+      `;
+  });
+</script>
+</body>
+</html>

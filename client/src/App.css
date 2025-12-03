@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes pulse-dot-0 {
+    0%, 60%, 100% { opacity: 1; }
+    30% { opacity: 0.3; }
+}
+
+@keyframes pulse-dot-1 {
+    0%, 30%, 90% { opacity: 1; }
+    60% { opacity: 0.3; }
+}
+
+@keyframes pulse-dot-2 {
+    0%, 60% { opacity: 1; }
+    90% { opacity: 0.3; }
+}
+
+.animate-pulse-dot-0 {
+    animation: pulse-dot-0 1.4s ease-in-out infinite;
+}
+
+.animate-pulse-dot-1 {
+    animation: pulse-dot-1 1.4s ease-in-out infinite;
+    animation-delay: 0.2s;
+}
+
+.animate-pulse-dot-2 {
+    animation: pulse-dot-2 1.4s ease-in-out infinite;
+    animation-delay: 0.4s;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #06b6d4, #8b5cf6);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #0891b2, #7c3aed);
+}
+
+/* Message animations */
+.message-content {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Gradient backgrounds */
+.gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-bg-reverse {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}

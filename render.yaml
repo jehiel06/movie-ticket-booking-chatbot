@@ -1,0 +1,37 @@
+services:
+  # Backend API
+  - type: web
+    name: movie-ticket-bot
+    env: docker
+    dockerfilePath: ./server/Dockerfile
+    dockerContext: ./server
+    plan: free
+    region: singapore  # Change to your region
+    envVars:
+      - key: MONGODB_URI
+        value: mongodb+srv://jehiel06:JeHiEl@jehiel.db2lwlv.mongodb.net/moviedb?retryWrites=true&w=majority
+      - key: GOOGLE_CLIENT_ID
+        value: 889694332925-svrbk4kireer3i3ggkfrg9qdtijud847.apps.googleusercontent.com
+      - key: EMAIL_USERNAME
+        value: jehieljehiel666@gmail.com
+      - key: EMAIL_PASSWORD
+        value: bqaf oeaa khxc ypry
+    healthCheckPath: /chat
+    autoDeploy: true
+
+  # Frontend Website
+  - type: static
+    name: movie-ticket-bot
+    plan: free
+    buildCommand: cd frontend && npm install && npm run build
+    publishPath: ./frontend/build
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://movie-ticket-bot-api.onrender.com
+      - key: REACT_APP_GOOGLE_CLIENT_ID
+        value: 889694332925-svrbk4kireer3i3ggkfrg9qdtijud847.apps.googleusercontent.com
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    autoDeploy: true

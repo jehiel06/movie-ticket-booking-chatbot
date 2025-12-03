@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Make Payment</title>
+    <style>
+        .payment-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .payment-button {
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+<div th:if="${paymentUrl}">
+    <h1>Complete Your Payment</h1>
+    <a th:href="${paymentUrl}" target="_blank">Click here to pay</a>
+</div>
+<div th:if="${error}">
+    <p style="color: red" th:text="${error}"></p>
+</div>
+</body>
+</html>

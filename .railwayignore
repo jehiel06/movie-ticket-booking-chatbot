@@ -1,0 +1,12 @@
+# Frontend
+frontend/node_modules/
+frontend/build/
+
+# Backend
+server/target/
+server/.mvn/wrapper/
+
+# System
+.DS_Store
+*.log
+.env.local

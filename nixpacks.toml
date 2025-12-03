@@ -1,0 +1,11 @@
+[phases.setup]
+cmds = ["cd server && ./mvnw dependency:go-offline"]
+
+[phases.install]
+cmds = ["cd server && ./mvnw clean install -DskipTests"]
+
+[phases.build]
+cmds = ["cd server && ./mvnw package -DskipTests"]
+
+[start]
+cmd = "cd server && java -jar target/*.jar"

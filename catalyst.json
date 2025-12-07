@@ -1,0 +1,7 @@
+{
+  "client": {
+    "root": "dist",
+    "build": "npm install && npm run build",
+    "plugin": "zcatalyst-cli-plugin-react"
+  }
+}

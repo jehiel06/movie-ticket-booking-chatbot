@@ -1,0 +1,7 @@
+{
+  "name": "movie-booking-chatbot",
+  "version": "1.0.0",
+  "buildCommand": "npm install && npm run build",
+  "buildPath": "dist",
+  "type": "react"
+}

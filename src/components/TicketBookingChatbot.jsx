@@ -5,7 +5,6 @@ import ChatMessages from "./Chat/ChatMessages";
 import ChatInput from "./Chat/ChatInput";
 import DatePickerModal from "./Chat/DatePickerModal";
 import SeatPickerModal from "./Chat/SeatPickerModal";
-import LoaderTypingDots from "./Chat/LoaderTypingDots";
 import TypingIndicator from "./Chat/TypingIndicator";
 import RecordRTC from 'recordrtc';
 
@@ -143,7 +142,6 @@ const TicketBookingChatbot = () => {
         const trimmed = input.trim();
         if (!trimmed || loading) return;
 
-        console.log("Sending message to backend:", trimmed);
         addUserMessage(trimmed);
         setInput("");
         await sendToBackend(trimmed, false);
@@ -360,7 +358,7 @@ const TicketBookingChatbot = () => {
         }
 
         try {
-            const stream = await navigator.mediaDevices.getUserMedia({audio: true});
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
             recorderRef.current = new RecordRTC(stream, {
                 type: 'audio',
                 mimeType: 'audio/wav',

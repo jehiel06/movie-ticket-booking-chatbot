@@ -9,7 +9,7 @@ import TypingIndicator from "./Chat/TypingIndicator";
 import RecordRTC from 'recordrtc';
 
 const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+const API_URL = 'https://moviebookingchatbot.development.catalystappsail.in';
 
 const TicketBookingChatbot = () => {
     const [messages, setMessages] = useState([
@@ -182,13 +182,25 @@ const TicketBookingChatbot = () => {
                 formData.append('userId', user.googleId);
             }
 
+            // Make sure API_URL is correct
+            const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:9000';
+
             const response = await fetch(`${API_URL}/chat/webhook`, {
                 method: 'POST',
                 body: formData,
+                // Important: Don't set Content-Type header manually for FormData
+                // Let browser set it automatically with boundary
+                headers: {
+                    'Accept': 'application/json',
+                },
+                credentials: 'include',
+                mode: 'cors'
             });
 
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                const errorText = await response.text();
+                console.error('Server error response:', errorText);
+                throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
             }
 
             const data = await response.json();
@@ -230,10 +242,10 @@ const TicketBookingChatbot = () => {
                     }, index * 1000);
                 });
             }
-
         } catch (error) {
-            console.error('Error:', error);
-            addBotMessage("An error occurred. Please try again.");
+            console.error('Error details:', error);
+            console.error('Error stack:', error.stack);
+            addBotMessage("An error occurred. Please try again. Error: " + error.message);
         } finally {
             setLoading(false);
         }

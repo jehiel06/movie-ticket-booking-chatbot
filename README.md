@@ -37,22 +37,22 @@ This project is a **full-stack web application** that allows users to book movie
 - **CORS-enabled** for secure frontend-backend communication
 
 ## 🏗️ Architecture
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│     Vercel      │────▶│  Zoho Catalyst  │────▶│  MongoDB Atlas  │
+│   (Frontend)    │     │   (Backend)     │     │   (Database)    │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+         │                        │                        │
+         ▼                        ▼                        ▼
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│   React App     │     │   Spring Boot   │     │  Movie Data     │
+│   UI/UX         │     │   REST API      │     │  User Sessions  │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+                              │
+         ┌────────────────────┴────────────────────┐
+         ▼                     ▼                   ▼
 ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
-│ Vercel │────▶│ Zoho Catalyst │────▶│ MongoDB Atlas │
-│ (Frontend) │ │ (Backend) │ │ (Database) │
-└─────────────────┘ └─────────────────┘ └─────────────────┘
-│ │ │
-▼ ▼ ▼
-┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
-│ React App │ │ Spring Boot │ │ Movie Data │
-│ UI/UX │ │ REST API │ │ User Sessions │
-└─────────────────┘ └─────────────────┘ └─────────────────┘
-│
-┌────────────────────┴────────────────────┐
-▼ ▼ ▼
-┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
-│ DialogFlow AI │ │ Google Speech │ │ Payment Gateway│
-│ NLP Engine │ │ Voice-to-Text │ │ Cashfree │
+│  DialogFlow AI  │ │ Google Speech   │ │ Payment Gateway│
+│  NLP Engine     │ │ Voice-to-Text   │ │  Cashfree      │
 └─────────────────┘ └─────────────────┘ └─────────────────┘
 
 ## 🛠️ Tech Stack
@@ -94,29 +94,29 @@ This project is a **full-stack web application** that allows users to book movie
 
 movie-ticket-booking-chatbot/
 │
-├── frontend/ # React application (This repository)
-│ ├── src/
-│ │ ├── components/ # Reusable UI components
-│ │ ├── pages/ # Page components
-│ │ ├── services/ # API service calls
-│ │ ├── utils/ # Utility functions
-│ │ └── App.jsx # Main application component
-│ ├── public/ # Static assets
-│ ├── package.json # Dependencies
-│ └── vite.config.js # Vite configuration
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── utils/
+│   │   └── App.jsx
+│   ├── public/
+│   ├── package.json
+│   └── vite.config.js
 │
-├── backend/ # Spring Boot application (Private repository)
-│ ├── src/main/java/com/ticket/chatbot/
-│ │ ├── controller/ # REST controllers
-│ │ ├── model/ # Data models (Booking, User, Seat, etc.)
-│ │ ├── repository/ # MongoDB repositories
-│ │ ├── service/ # Business logic
-│ │ ├── config/ # Configuration classes
-│ │ └── ChatbotApplication.java
-│ ├── pom.xml # Maven dependencies
-│ └── application.properties
+├── backend/
+│   ├── src/main/java/com/ticket/chatbot/
+│   │   ├── controller/
+│   │   ├── model/
+│   │   ├── repository/
+│   │   ├── service/
+│   │   ├── config/
+│   │   └── ChatbotApplication.java
+│   ├── pom.xml
+│   └── application.properties
 │
-└── README.md # This file
+└── README.md
 
 
 ## 🚀 Getting Started
@@ -144,8 +144,53 @@ npm install
 cp .env.example .env.local
 # Edit .env.local with your API endpoints
 
+🔌 API Endpoints
+Method	Endpoint	Description
+POST	/chat/webhook	Main chatbot webhook for text/voice queries
+GET	/chat	Health check endpoint
+POST	/payment/webhook	Payment gateway callback
+GET	/dev/info	Development information
+GET	/dev/env	Environment variables (dev only)
+
 # Start development server
 npm run dev
 
 # Build for production
 npm run build
+
+🤝 Contributing
+This is currently a personal project. However, suggestions and feedback are welcome!
+
+Fork the repository
+
+Create a feature branch (git checkout -b feature/AmazingFeature)
+
+Commit your changes (git commit -m 'Add some AmazingFeature')
+
+Push to the branch (git push origin feature/AmazingFeature)
+
+Open a Pull Request
+
+📄 License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+👤 Author
+Jehiel
+
+GitHub: https://github.com/jehiel06
+
+LinkedIn: https://www.linkedin.com/in/jehiel06/
+
+
+🙏 Acknowledgments
+Google Cloud for DialogFlow and Speech-to-Text APIs
+
+TMDB for movie data API
+
+MovieGlu for showtime information
+
+Cashfree for payment gateway
+
+Zoho Catalyst for backend hosting
+
+Vercel for frontend hosting

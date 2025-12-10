@@ -36,25 +36,6 @@ This project is a **full-stack web application** that allows users to book movie
 - **Email notifications** for booking confirmations
 - **CORS-enabled** for secure frontend-backend communication
 
-## 🏗️ Architecture
-┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│     Vercel      │────▶│  Zoho Catalyst  │────▶│  MongoDB Atlas  │
-│   (Frontend)    │     │   (Backend)     │     │   (Database)    │
-└─────────────────┘     └─────────────────┘     └─────────────────┘
-         │                        │                        │
-         ▼                        ▼                        ▼
-┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│   React App     │     │   Spring Boot   │     │  Movie Data     │
-│   UI/UX         │     │   REST API      │     │  User Sessions  │
-└─────────────────┘     └─────────────────┘     └─────────────────┘
-                              │
-         ┌────────────────────┴────────────────────┐
-         ▼                     ▼                   ▼
-┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
-│  DialogFlow AI  │ │ Google Speech   │ │ Payment Gateway│
-│  NLP Engine     │ │ Voice-to-Text   │ │  Cashfree      │
-└─────────────────┘ └─────────────────┘ └─────────────────┘
-
 ## 🛠️ Tech Stack
 
 ### Frontend
@@ -89,35 +70,6 @@ This project is a **full-stack web application** that allows users to book movie
 - **Backend**: Zoho Catalyst AppSail (PaaS)
 - **Database**: MongoDB Atlas (Cloud)
 - **CI/CD**: Manual deployment with environment-specific configurations
-
-## 📁 Project Structure
-
-movie-ticket-booking-chatbot/
-│
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── services/
-│   │   ├── utils/
-│   │   └── App.jsx
-│   ├── public/
-│   ├── package.json
-│   └── vite.config.js
-│
-├── backend/
-│   ├── src/main/java/com/ticket/chatbot/
-│   │   ├── controller/
-│   │   ├── model/
-│   │   ├── repository/
-│   │   ├── service/
-│   │   ├── config/
-│   │   └── ChatbotApplication.java
-│   ├── pom.xml
-│   └── application.properties
-│
-└── README.md
-
 
 ## 🚀 Getting Started
 
@@ -175,12 +127,11 @@ Open a Pull Request
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 👤 Author
-Jehiel
+Jehiel A
 
-GitHub: https://github.com/jehiel06
+LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/jehiel06)
 
-LinkedIn: https://www.linkedin.com/in/jehiel06/
-
+GitHub: [Your GitHub Website](https://github.com/jehiel06)
 
 🙏 Acknowledgments
 Google Cloud for DialogFlow and Speech-to-Text APIs

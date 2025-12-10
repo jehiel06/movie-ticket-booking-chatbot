@@ -55,7 +55,6 @@ This project is a **full-stack web application** that allows users to book movie
 │ NLP Engine │ │ Voice-to-Text │ │ Cashfree │
 └─────────────────┘ └─────────────────┘ └─────────────────┘
 
-
 ## 🛠️ Tech Stack
 
 ### Frontend

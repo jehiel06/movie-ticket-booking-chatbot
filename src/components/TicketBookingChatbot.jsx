@@ -183,7 +183,7 @@ const TicketBookingChatbot = () => {
             }
 
             // Make sure API_URL is correct
-            const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:9000';
+            const API_URL = 'https://movie-ticket-chatbot-dev-50036498846.development.catalystappsail.in';
 
             const response = await fetch(`${API_URL}/chat/webhook`, {
                 method: 'POST',
